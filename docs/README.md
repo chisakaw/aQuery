@@ -78,7 +78,7 @@
   $("<div>test</div").appendTo($("body")).remove().appendTo($("body"));
   ```
 
-### remove(className)
+### removeClass(className)
 
 ---
 
@@ -206,14 +206,12 @@
 
 - **详细:**
 
-  返`回一个包含所有匹配的元素的数组
-
-  !> 数组的尾部会包含一个 oldApi 对象, 保存的是对上一级 aQuery api 对象的引用 , 如果不需要请手动删除
+  返回一个新的 api 对象，操作的元素为选择器所匹配的元素
 
 - **示例:**
 
   ```javascript
-  $("body").append($("<div>1<div>2</div></div>")).find("div").print(); // [div, div, oldApi: w…w.$.w…w.aQuery]
+  $("body").append($("<div>1<div>2</div></div>")).find("div").print(); // [div, div]
   ```
 
 ### each(fn)
@@ -262,23 +260,7 @@
 
   解除事件绑定
 
-- **示例:**
-
-  ```javascript
-  const onClick = () => console.log("clicked");
-  $("<button>click Me</button>")
-    .appendTo($("body"))
-    .on("click", onClick)
-    .off("click", onClick);
-  ```
-
-### end
-
----
-
-- **详细:**
-
-  返回到上一级 aQuery api 对象
+  !> 如果事件绑定中传入的函数为匿名函数，将无法解除绑定
 
 - **示例:**
 

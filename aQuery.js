@@ -17,8 +17,7 @@ window.$ = window.aQuery = function (selectorOrArrayOrTemplate) {
   }
   const api = Object.create($.prototype);
   Object.assign(api, {
-    elements: elements,
-    oldApi: selectorOrArrayOrTemplate.oldApi,
+    elements,
   });
   return api;
 };
@@ -139,7 +138,6 @@ $.prototype = {
       const elements2 = Array.from(this.elements[i].querySelectorAll(selector));
       array = array.concat(elements2);
     }
-    array.oldApi = this;
     return $(array);
   },
   each(fn) {
@@ -159,11 +157,5 @@ $.prototype = {
       node.removeEventListener(eventName, fn);
     });
     return this;
-  },
-  end() {
-    console.log(this.api.elements);
-    this.api.elements = null;
-    console.log(this.api.elements);
-    return this.oldApi;
   },
 };
