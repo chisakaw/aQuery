@@ -1,5 +1,5 @@
 # aQuery
 
-一个参考 jQuery 设计的开源 DOM 库
+一个 jQuery 的简易实现
 
-API 文档 : https://kehanhan.github.io/aQuery/
+API 文档 : https://kehanhan.github.io/aQuery/docs/
